@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors=require('cors')
 
 require("dotenv").config();
 const dbConfig = require("./config/dbConfig");
@@ -17,6 +18,9 @@ app.use("/api/bookings", bookingsRoute);
 
 
 const port = process.env.PORT || 5000;
+app.use(cors({
+  origin:'*'
+}))
 
 const path = require("path");
 __dirname = path.resolve();
